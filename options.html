@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark Git Tracker - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <path d="M12 16L13.09 22.26L20 23L13.09 23.74L12 30L10.91 23.74L4 23L10.91 22.26L12 16Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Bookmark Git Tracker</h1>
+        <p>Manage your bookmark version control settings</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="section">
+        <h2>Git Configuration</h2>
+        <p class="section-description">Configure the Git author information for your bookmark commits.</p>
+        
+        <div class="form-group">
+          <label for="author-name">Author Name</label>
+          <input type="text" id="author-name" placeholder="Your Name" />
+          <small>This will be used as the author name in commit history.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="author-email">Author Email</label>
+          <input type="email" id="author-email" placeholder="your.email@example.com" />
+          <small>This will be used as the author email in commit history.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="auto-commit">Automatic Commits</label>
+          <div class="checkbox-group">
+            <input type="checkbox" id="auto-commit" checked />
+            <label for="auto-commit">Automatically create commits when bookmarks change</label>
+          </div>
+          <small>When enabled, changes to bookmarks will automatically create Git commits.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="commit-delay">Commit Delay (seconds)</label>
+          <input type="number" id="commit-delay" min="1" max="60" value="1" />
+          <small>Delay before creating commits to batch rapid changes together.</small>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Repository Management</h2>
+        <p class="section-description">Manage your bookmark Git repository.</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="total-commits">0</div>
+            <div class="stat-label">Total Commits</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="repo-size">0 KB</div>
+            <div class="stat-label">Repository Size</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="current-branch">main</div>
+            <div class="stat-label">Current Branch</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="last-commit-date">Never</div>
+            <div class="stat-label">Last Commit</div>
+          </div>
+        </div>
+
+        <div class="action-group">
+          <button id="create-backup" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/>
+              <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Export Repository
+          </button>
+          
+          <button id="import-backup" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/>
+              <polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Import Repository
+          </button>
+
+          <button id="reset-repo" class="btn btn-danger">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <polyline points="3,6 5,6 21,6" stroke="currentColor" stroke-width="2"/>
+              <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Reset Repository
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Browser Compatibility</h2>
+        <p class="section-description">This extension is compatible with all Chromium-based browsers.</p>
+
+        <div class="browser-grid">
+          <div class="browser-card">
+            <div class="browser-icon chrome"></div>
+            <h3>Google Chrome</h3>
+            <p>Fully supported</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-icon arc"></div>
+            <h3>Arc Browser</h3>
+            <p>Fully supported</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-icon comet"></div>
+            <h3>Comet Browser</h3>
+            <p>Fully supported</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-icon dia"></div>
+            <h3>Dia Browser</h3>
+            <p>Fully supported</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>About</h2>
+        <p class="section-description">Information about this extension.</p>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Version</label>
+            <span>1.0.0</span>
+          </div>
+          <div class="info-item">
+            <label>Manifest Version</label>
+            <span>3</span>
+          </div>
+          <div class="info-item">
+            <label>License</label>
+            <span>MIT</span>
+          </div>
+          <div class="info-item">
+            <label>Repository</label>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="save-status">
+        <span id="save-status">Settings saved automatically</span>
+      </div>
+      <div class="footer-actions">
+        <button id="save-settings" class="btn btn-primary">Save Settings</button>
+        <button id="reset-settings" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+    </footer>
+
+    <!-- Hidden file input for import -->
+    <input type="file" id="import-file" accept=".json" style="display: none;" />
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Confirmation modal -->
+    <div id="confirmation-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title">Confirm Action</h3>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-message">Are you sure you want to proceed?</p>
+          <div class="modal-buttons">
+            <button id="cancel-action" class="btn btn-secondary">Cancel</button>
+            <button id="confirm-action" class="btn btn-danger">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

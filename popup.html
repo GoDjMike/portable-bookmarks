@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark Git Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <path d="M12 16L13.09 22.26L20 23L13.09 23.74L12 30L10.91 23.74L4 23L10.91 22.26L12 16Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1 class="header-title">Bookmark Git Tracker</h1>
+      <button id="options-btn" class="icon-btn" title="Options">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="m12 1 1.68 2.82L16.5 3l-.82 1.68L18.5 6l-2.82.32L15 9l-1.68-.32L12 11l-1.32-2.32L8 8l.82-1.68L6.5 6l.82-1.68L6.5 3l1.68.82L10 1h2z"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="status-bar">
+      <div class="status-indicator">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Initializing...</span>
+      </div>
+      <div class="stats">
+        <span id="commit-count">0 commits</span>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button id="create-snapshot-btn" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Create Snapshot
+      </button>
+      <button id="refresh-btn" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="currentColor" stroke-width="2"/>
+          <path d="M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 16H3v5" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Refresh
+      </button>
+    </div>
+
+    <div class="tabs">
+      <button id="history-tab" class="tab active">History</button>
+      <button id="stats-tab" class="tab">Stats</button>
+    </div>
+
+    <div id="history-panel" class="panel active">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search commits..." />
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+      </div>
+
+      <div id="commit-list" class="commit-list">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Loading commit history...</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="stats-panel" class="panel">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="total-commits">0</div>
+          <div class="stat-label">Total Commits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="total-bookmarks">0</div>
+          <div class="stat-label">Current Bookmarks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="total-folders">0</div>
+          <div class="stat-label">Current Folders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="repo-age">0d</div>
+          <div class="stat-label">Repository Age</div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>Repository Information</h3>
+        <div class="info-item">
+          <span class="info-label">Current Branch:</span>
+          <span id="current-branch">main</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Last Commit:</span>
+          <span id="last-commit">Never</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Repository Created:</span>
+          <span id="repo-created">Unknown</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="snapshot-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create Manual Snapshot</h3>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label for="commit-message">Commit Message:</label>
+          <input type="text" id="commit-message" placeholder="Enter commit message..." />
+          <div class="modal-buttons">
+            <button id="cancel-snapshot" class="btn btn-secondary">Cancel</button>
+            <button id="confirm-snapshot" class="btn btn-primary">Create Snapshot</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
