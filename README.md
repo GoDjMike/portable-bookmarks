@@ -1,6 +1,14 @@
-# Bookmark Git Tracker
+# Portable Bookmarks
 
-A powerful Chrome extension that automatically tracks bookmark changes using Git version control. Compatible with all Chromium-based browsers including Chrome, Arc, Comet, and Dia.
+*Sync your bookmarks across multiple chrome-based browsers, 24/7.*
+
+A pre-alpha chrome extension syncing your bookmarks, links and folders across Chrome, Arc (in progress), Comet, and Dia.
+  - try out all the new browsers without losing your bookmarks and folders
+  - (self-host) locally run a sync engine that persists across restarts
+  - (cloud) set-and-forget a smarter way to bring your bookmarks with you
+     - future: remote MCP server support to pass your bookmark(s) as LLM context
+
+[note: pre-alpha is in a **non-working state as of 7/28/2025**. Fixing ASAP.]
 
 ## Features
 
